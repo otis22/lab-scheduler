@@ -4,3 +4,6 @@
 # for user notes except readme
 scripts/*
 !scripts/README.md
+
+# for user crons
+docker/crontab/crontabs
