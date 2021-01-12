@@ -1,7 +1,7 @@
 compose:=docker-compose -f $(CURDIR)/docker/docker-compose.yml
 
 build:
-	-rm $(CURDIR)/docker/crontab/crontabs/jovyan
+	cp -n $(CURDIR)/docker/crontab.example $(CURDIR)/docker/crontab/crontabs/jovyan
 	cp -n $(CURDIR)/.env.example $(CURDIR)/.env
 	touch $(CURDIR)/docker/crontab/crontabs/jovyan
 	$(compose) build 
