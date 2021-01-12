@@ -6,7 +6,12 @@
 1. `make all` for starting services
 1. Open in browser http://localhost:8888
 1. Default password `test`
-1. `make down` for stop all services
+
+*On first start press Build button on popup. Wait a couple of minutes and press Reload button on pop. That is all. You can use scheduler.*
+
+* `make down` for stop service
+* `make up` for start service
+* for run scheduller - press right button on your note
 
 # How to change password
 
@@ -15,3 +20,9 @@
 Example `JUPYTER_PASSWORD=argon2:$argon2id$v=19$m=10240,t=10,p=8$uZm69HinKbMOVcaw112HPA$ZwTZE8/BtrgNygeZ8PjRjw`
 1. `make down` and `make up` for restart services
 
+
+# Other
+
+`make exec` - for go to jupyter-lab container
+
+`make exec-cron` - for go to jupyter-cron container
