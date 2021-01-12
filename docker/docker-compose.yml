@@ -1,0 +1,27 @@
+version: "3.1"
+services:
+
+  jupyter-lab:
+    build: jupyter-lab
+    container_name: jupyter-lab
+    restart: unless-stopped
+    user: jovyan
+    env_file:
+      ../.env
+    ports:
+     - "8888:8888"
+    volumes:
+      - ../scripts:/home/jovyan:rw
+      - ../jupyter.py:/conf/jupyter.py      
+      - ./crontab/crontabs/:/var/spool/cron/crontabs/:rw
+
+  jupyter-cron:
+    build: jupyter-cron 
+    restart: unless-stopped
+    container_name: jupyter-cron
+    env_file:
+      ../.env    
+    volumes:
+      - ../scripts:/home/jovyan:rw
+      - ../jupyter.py:/conf/jupyter.py
+      - ./crontab/crontabs/:/var/spool/cron/crontabs/

@@ -1,0 +1,6 @@
+
+.env
+
+# for user notes except readme
+scripts/*
+!scripts/README.md
