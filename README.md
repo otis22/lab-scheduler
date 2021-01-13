@@ -26,3 +26,5 @@ Example `JUPYTER_PASSWORD=argon2:$argon2id$v=19$m=10240,t=10,p=8$uZm69HinKbMOVca
 `make exec` - for go to jupyter-lab container
 
 `make exec-cron` - for go to jupyter-cron container
+
+jupyter_scheduler can to broke crontab file, if schedule does not work check this line exist in crontab `PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`  
