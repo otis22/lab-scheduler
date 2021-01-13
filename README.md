@@ -4,7 +4,7 @@
 
 1. Fork this repo and clone to localy 
 1. `make all` for starting services
-1. Open in browser http://localhost:8888
+1. Open in browser http://localhost:47755
 1. Default password `test`
 
 *On first start press Build button on popup. Wait a couple of minutes and press Reload button on pop. That is all. You can use scheduler.*
