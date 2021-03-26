@@ -30,3 +30,40 @@ Example `JUPYTER_PASSWORD=argon2:$argon2id$v=19$m=10240,t=10,p=8$uZm69HinKbMOVca
 jupyter_scheduler can to broke crontab file, if schedule does not work check this line exist in crontab `PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`  
 
 Add your ssl certificates - put variables to .env `JUPYTER_CERTFILE` and `JUPYTER_KEYFILE` for example `JUPYTER_KEYFILE=/home/jovyan/.cert/mykey.key`
+
+# Google Sheets Intergration with gspread
+
+You can upluad pandas frame to google sheets by schedule
+
+
+Steps 
+
+1. Read the [instructions](https://gspread.readthedocs.io/en/latest/oauth2.html#enable-api-access-for-a-project)
+2. Make json auth file and download it
+3. Copy generated email for auth like that `key@key-id.iam.gserviceaccount.com`
+3. Create Table in Goggle Sheets 
+4. Share the table with generated email
+5. Write and run for upload, or do another thisn
+
+```python
+import pandas as pd
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+d = {'col1': [1, 2], 'col2': [3, 4]}
+df = pd.DataFrame(data=d)
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+credentials = ServiceAccountCredentials.from_json_keyfile_name(
+    'myauthjson.json', scopes=scope)
+gc = gspread.authorize(credentials)
+
+sht1 = gc.open_by_url('https://docs.google.com/spreadsheets/d/secret/edit#gid=0')
+worksheet = sht1.worksheets()[0]
+worksheet.update([df.columns.values.tolist()] + df.values.tolist())
+
+```
+
+After first run you can get url for enabling integration follow the instruction.
+
+[More features](https://gspread.readthedocs.io/)
