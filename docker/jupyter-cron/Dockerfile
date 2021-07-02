@@ -3,7 +3,7 @@ FROM jupyter/scipy-notebook
 USER root
 
 RUN apt-get update
-RUN apt install -y python-dev python3-dev libmysqlclient-dev tzdata cron less
+RUN apt install -y python-dev python3-dev default-libmysqlclient-dev build-essential tzdata cron less libssl-dev
 
 ENV TZ Europe/Kiev
 ENV PATH ${PATH}:/usr/local/bin:/opt/conda/bin/
