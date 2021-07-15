@@ -14,4 +14,4 @@ RUN pip install jupyterlab_scheduler
 
 ENV TZ Europe/Kiev
 
-CMD USER=jovyan jupyter lab --config=/conf/jupyter.py
+CMD USER=jovyan jupyterhub --config=/conf/jupyter.py
