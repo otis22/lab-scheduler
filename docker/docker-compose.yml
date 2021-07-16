@@ -5,11 +5,11 @@ services:
     build: jupyter-lab
     container_name: jupyter-lab
     restart: unless-stopped
-    user: jovyan
+    user: root
     env_file:
       ../.env
     ports:
-     - "47755:8888"
+     - "47755:8000"
     volumes:
       - ../scripts:/home/jovyan:rw
       - ../jupyter.py:/conf/jupyter.py      
