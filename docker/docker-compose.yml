@@ -11,8 +11,8 @@ services:
     ports:
      - "47755:8000"
     volumes:
-      - ../scripts:/home/jovyan:rw
-      - ../jupyter.py:/conf/jupyter.py      
+      - ../scripts:/home:rw
+      - ../jupyter.py:/conf/jupyter.py
       - ./crontab/crontabs/:/var/spool/cron/crontabs/:rw
 
   jupyter-cron:
