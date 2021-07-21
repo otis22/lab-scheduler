@@ -2,10 +2,10 @@
 
 # How to use 
 
-1. Fork this repo and clone to localy 
-1. `make all` for starting services
-1. Create admin user by `docker exec -it jupyter-lab adduser admin`
-1. Open in browser http://localhost:47755 and log in
+1. Fork this repo and clone to localy
+2. Fill .env (https://console.cloud.google.com/apis/credentials. You can use ngrok to get non-local url)
+3. `make all` for starting services
+4. Open in browser http://localhost:47755 and log in with Google
 
 
 *On first start press Build button on popup. Wait a couple of minutes and press Reload button on pop. That is all. You can use scheduler.*
@@ -14,6 +14,12 @@
 * `make up` for start service
 * for run scheduller - press right button on your note
 
+# White list
+You can provide whitelist by adding
+to jupyter.py
+```
+c.LocalGoogleOAuthenticator.allowed_users = {'user1@gmail.com', 'user2@gmail.com'}
+```
 
 # Other
 
