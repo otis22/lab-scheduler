@@ -10,6 +10,9 @@ build:
 up:
 	$(compose) up --detach
 
+serve:
+	$(compose) up
+
 down:
 	$(compose) down
 
