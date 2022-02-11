@@ -10,7 +10,7 @@ ENV PATH ${PATH}:/usr/local/bin:/opt/conda/bin/
 
 USER jovyan
 RUN pip install --upgrade pip
-RUN pip install mysqlclient && pip install ipython-cache ipython-sql mysql-connector-python pymysql jupyterlab-scheduler requests
+RUN pip install mysqlclient && pip install ipython-cache ipython-sql mysql-connector-python pymysql jupyterlab-scheduler requests gspread oauth2client oauthenticator
 RUN conda install -c conda-forge ipyleaflet jupyterlab nodejs
 RUN pip install jupyterlab_scheduler
 
